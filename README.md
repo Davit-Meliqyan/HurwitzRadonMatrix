@@ -154,31 +154,7 @@ public class HurwitzRadonMatrix {
         }
     }
 
-    static  int[][] matrixMultiply(int[][] a, int[][] b){
-        int[][] c = new int[a.length][b[0].length];
-        for (int i=0; i<a.length; ++i){
-            for (int j=0; j<b[0].length; ++j){
-                for (int k=0; k<a[0].length; ++k){
-                    c[i][j] += a[i][k] * b[k][j];
-                }
-            }
-        }
-
-        return c;
-    }
-    static  int[][] minusMatrix(int[][] a){
-        int[][] c = new int[a.length][a[0].length];
-        for (int i=0; i<a.length; ++i){
-            for (int j=0; j<a[0].length; ++j){
-
-                    c[i][j] = a[i][j] * -1;
-
-            }
-        }
-
-        return c;
-    }
-
+   
 
 
 
@@ -189,32 +165,15 @@ public class HurwitzRadonMatrix {
         int n = scanner.nextInt();
         int k=0;
         System.out.println(HurwitzRadon(n));
+        
         while (k<HurwitzRadon(n)){
             matrixPrint(matrix(n,k));
             System.out.println(" ");
             k++;
         }
-        // int[][] a ={{-1,0},
-        //           {0,-1}};
-        //int[][] b ={{0,-1},
-        //          {1,0}};
+       
 
-        //matrixPrint(matrixMultiply(b,a));
-
-        for (int i=0; i<HurwitzRadon(n); ++i){
-            for (int j=0; j<HurwitzRadon(n); ++j){
-                for (int m=0; m<HurwitzRadon(n); ++m){
-                    if(Arrays.deepEquals(matrixMultiply(matrix(n,i),matrix(n,j)),matrix(n,m)) == true ){
-                        System.out.print("A" + m + " ");
-                    }
-                    else if(Arrays.deepEquals(matrixMultiply(matrix(n,i),matrix(n,j)),minusMatrix(matrix(n,m))) == true ){
-                        System.out.print("-A" + m + " ");
-                    }
-
-                }
-            }
-            System.out.println(" ");
-        }
+       
         
     }
 }
